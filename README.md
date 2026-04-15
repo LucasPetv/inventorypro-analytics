@@ -2,7 +2,7 @@
 
 Eine moderne Web-Anwendung für Lageranalyse und Inventar-KPI-Berechnung.
 
-🚀 **[Live Demo](https://yourusername.github.io/inventorypro-analytics/)**
+🚀 **[Live Demo](https://LucasPetv.github.io/inventorypro-analytics/)**
 
 ## 🚀 Features
 
