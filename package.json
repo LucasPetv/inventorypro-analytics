@@ -1,0 +1,49 @@
+{
+  "name": "inventorypro-analytics",
+  "version": "1.0.1",
+  "description": "Modern web-based inventory analysis application with KPI calculations and Excel/CSV import",
+  "type": "module",
+  "homepage": "./",
+  "author": "InventoryPro Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/inventorypro-analytics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/inventorypro-analytics/issues"
+  },
+  "keywords": [
+    "inventory",
+    "analytics",
+    "react",
+    "typescript",
+    "web-app",
+    "kpi",
+    "excel",
+    "csv",
+    "dashboard"
+  ],
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-gh-pages": "vite build --base=/inventorypro-analytics/",
+    "preview": "vite preview",
+    "deploy": "npm run build-gh-pages && gh-pages -d dist"
+  },
+  "dependencies": {
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "recharts": "^3.7.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "gh-pages": "^6.3.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

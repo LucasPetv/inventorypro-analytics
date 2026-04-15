@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Test</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .app {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .success { color: #28a745; font-size: 28px; margin-bottom: 20px; }
+        .button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div style="text-align: center; padding: 50px;">
+            <h2>🔄 React lädt...</h2>
+            <p>Falls diese Nachricht nicht verschwindet, gibt es ein Problem mit React.</p>
+        </div>
+    </div>
+
+    <script type="text/babel">
+        function TestApp() {
+            const [count, setCount] = React.useState(0);
+            const [message, setMessage] = React.useState('React funktioniert! 🎉');
+            
+            const handleClick = () => {
+                setCount(count + 1);
+                setMessage(`Button wurde ${count + 1} mal geklickt! 🎯`);
+            };
+            
+            return (
+                <div className="app">
+                    <h1 className="success">{message}</h1>
+                    <p>Dies ist ein React-Komponent, der erfolgreich gerendert wurde.</p>
+                    <button className="button" onClick={handleClick}>
+                        Klick mich! (Count: {count})
+                    </button>
+                    <div style={{marginTop: '30px', textAlign: 'left'}}>
+                        <h3>✅ Was funktioniert:</h3>
+                        <ul>
+                            <li>HTML wird geladen</li>
+                            <li>CSS wird angewendet</li>
+                            <li>React wird von CDN geladen</li>
+                            <li>JSX wird kompiliert</li>
+                            <li>State Management funktioniert</li>
+                            <li>Event Handling funktioniert</li>
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+        
+        ReactDOM.render(<TestApp />, document.getElementById('root'));
+    </script>
+</body>
+</html>
