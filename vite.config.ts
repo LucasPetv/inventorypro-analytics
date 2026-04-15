@@ -5,13 +5,14 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode, command }) => {
     const env = loadEnv(mode, '.', '');
     
-    // GitHub Pages base path - ersetzt den Repository-Namen entsprechend
-    const base = command === 'build' && process.env.npm_lifecycle_event === 'build-gh-pages'
-      ? '/inventorypro-analytics/' 
-      : './';
+    // GitHub Pages base path
+    const isGitHubPagesBuild = process.env.npm_lifecycle_event === 'build-gh-pages';
+    const base = isGitHubPagesBuild ? '/inventorypro-analytics/' : '/';
+    
+    console.log('Build mode:', mode, 'Command:', command, 'Base:', base);
     
     return {
-      base: base, // Wichtig für GitHub Pages
+      base: base,
       server: {
         port: 5174,
         host: '0.0.0.0',

@@ -21,8 +21,13 @@ import AuthPortal from './components/AuthPortal';
 import { SimpleAuthService, User as AuthUser } from './services/simpleAuthService';
 
 const App: React.FC = () => {
+  console.log('🚀 App component initializing...');
+  
   // Simple authentication service
-  const [authService] = useState(() => new SimpleAuthService());
+  const [authService] = useState(() => {
+    console.log('🔐 Initializing AuthService...');
+    return new SimpleAuthService();
+  });
 
   // Auth State
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
