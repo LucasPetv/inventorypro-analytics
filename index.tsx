@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// Use minimal app version for debugging
-import App from './MinimalApp.tsx';
+// Use main app version - back to full React app
+import App from './App.tsx';
 
 console.log('🚀 Loading InventoryPro Analytics...');
 console.log('📦 Checking React version:', React.version);

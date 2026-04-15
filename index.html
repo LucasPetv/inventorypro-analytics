@@ -1,221 +1,23 @@
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InventoryPro Analytics - Test</title>
+    <title>InventoryPro Analytics - Advanced KPI Suite</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        .success-message {
-            background: rgba(34, 197, 94, 0.2);
-            border: 2px solid #22c55e;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .login-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 30px;
-        }
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 15px;
-            background: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-        button:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-        }
-        .demo-creds {
-            background: rgba(34, 197, 94, 0.1);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            font-family: monospace;
-            font-size: 14px;
-        }
-        .status {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        .success { background: rgba(34, 197, 94, 0.2); border: 2px solid #22c55e; }
-        .error { background: rgba(239, 68, 68, 0.2); border: 2px solid #ef4444; }
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="logo">🛡️</div>
-        <div class="title">InventoryPro Analytics</div>
-        <div class="subtitle">Erfolgreich zu GitHub Pages migriert!</div>
-        
-        <div class="success-message">
-            <h3>✅ Migration erfolgreich!</h3>
-            <p>Die Electron Desktop-App wurde erfolgreich zu einer Web-Anwendung umgewandelt und läuft jetzt auf GitHub Pages.</p>
-        </div>
-
-        <div class="login-section">
-            <h3>🔐 Demo Login</h3>
-            <form onsubmit="handleLogin(event)">
-                <div class="input-group">
-                    <label>Benutzername:</label>
-                    <input type="text" id="username" value="demo" required>
-                </div>
-                <div class="input-group">
-                    <label>Passwort:</label>
-                    <input type="password" id="password" value="demo123" required>
-                </div>
-                <button type="submit">🚀 Anmelden</button>
-            </form>
-            
-            <div class="demo-creds">
-                <strong>Demo-Zugänge:</strong><br>
-                Username: demo | Password: demo123<br>
-                Username: admin | Password: admin123
-            </div>
-            
-            <div id="status" class="status" style="display: none;"></div>
-        </div>
-
-        <div style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
-            <p>🔗 <strong>Repository:</strong> <a href="https://github.com/LucasPetv/inventorypro-analytics" style="color: #93c5fd;">GitHub</a></p>
-            <p>🌐 <strong>Live-URL:</strong> lucaspetv.github.io/inventorypro-analytics</p>
-        </div>
-    </div>
-
-    <script>
-        console.log('✅ Pure HTML/JS Version loaded successfully!');
-        
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const statusDiv = document.getElementById('status');
-            
-            console.log('Login attempt:', username);
-            
-            // Demo validation
-            const validUsers = {
-                'demo': 'demo123',
-                'admin': 'admin123'
-            };
-            
-            if (validUsers[username] && validUsers[username] === password) {
-                statusDiv.className = 'status success';
-                statusDiv.innerHTML = `
-                    <h4>🎉 Login erfolgreich!</h4>
-                    <p>Willkommen, ${username}!</p>
-                    <p><strong>Nächste Schritte:</strong></p>
-                    <ul style="text-align: left;">
-                        <li>✅ GitHub Pages funktioniert</li>
-                        <li>✅ HTML/CSS/JS wird korrekt geladen</li>
-                        <li>⏭️ React-App kann jetzt aktiviert werden</li>
-                    </ul>
-                `;
-                statusDiv.style.display = 'block';
-                
-                // Store auth for potential React app
-                localStorage.setItem('test_auth', JSON.stringify({
-                    username: username,
-                    timestamp: Date.now()
-                }));
-                
-                console.log('✅ Login successful for:', username);
-                
-            } else {
-                statusDiv.className = 'status error';
-                statusDiv.innerHTML = `
-                    <h4>❌ Login fehlgeschlagen</h4>
-                    <p>Ungültige Anmeldedaten</p>
-                `;
-                statusDiv.style.display = 'block';
-                console.log('❌ Login failed for:', username);
-            }
-        }
-        
-        // Test GitHub Pages environment
-        console.log('🌍 Page URL:', window.location.href);
-        console.log('🔧 User Agent:', navigator.userAgent);
-        console.log('📱 Screen Size:', screen.width + 'x' + screen.height);
-        console.log('🖥️ Window Size:', window.innerWidth + 'x' + window.innerHeight);
-        
-        // Check if we're on GitHub Pages
-        if (window.location.hostname.includes('github.io')) {
-            console.log('✅ Running on GitHub Pages!');
-        } else {
-            console.log('🏠 Running locally');
-        }
-    </script>
+<body class="bg-slate-50 text-slate-900">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
