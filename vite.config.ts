@@ -1,8 +1,7 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/postcss';
-import autoprefixer from 'autoprefixer';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({ mode, command }) => {
     const env = loadEnv(mode, '.', '');
@@ -30,12 +29,7 @@ export default defineConfig(({ mode, command }) => {
           external: ['mysql2', 'mysql2/promise', 'bcryptjs', 'jsonwebtoken', 'crypto'] // Externalize Node.js modules for browser
         }
       },
-      plugins: [react()],
-      css: {
-        postcss: {
-          plugins: [tailwindcss, autoprefixer],
-        },
-      },
+      plugins: [react(), tailwindcss()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
