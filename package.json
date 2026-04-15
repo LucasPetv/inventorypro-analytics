@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Modern web-based inventory analysis application with KPI calculations and Excel/CSV import",
   "type": "module",
-  "homepage": "./",
+  "homepage": "https://lucaspetv.github.io/inventorypro-analytics",
   "author": "InventoryPro Team",
   "license": "MIT",
   "repository": {
