@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './src/index.css';
 // Use main app version - back to full React app
 import App from './App.tsx';
 
