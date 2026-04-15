@@ -21,6 +21,9 @@ export default defineConfig(({ mode, command }) => {
         outDir: 'dist',
         emptyOutDir: true,
         rollupOptions: {
+          input: {
+            main: path.resolve(__dirname, 'index.html')
+          },
           external: ['mysql2', 'mysql2/promise', 'bcryptjs', 'jsonwebtoken', 'crypto'] // Externalize Node.js modules for browser
         }
       },
