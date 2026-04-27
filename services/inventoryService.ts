@@ -123,7 +123,7 @@ export class InventoryService {
     let lagerStatusColor: 'red' | 'yellow' | 'green' = 'green';
 
     // Totes Lager: Lagerdauer > 365 Tage UND Verbrauch = 0
-    if (avgLagerdauer > 365 && item.Verbrauch === 0) {
+    if (avgLagerdauer > 364 && item.Verbrauch === 0) {
       lagerStatus = 'Totes Lager';
       lagerStatusColor = 'red';
     }
