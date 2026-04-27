@@ -113,9 +113,12 @@ export class InventoryService {
     
     const bestandswert = item.Istbestand * item.Preis;
     const avgLagerbestand = (item.Istbestand + item.Inventurergebnis) / 2;
-    const umschlagshaeufigkeit = item.Verbrauch / (avgLagerbestand || 1);
-    const avgLagerdauer = 360 / (umschlagshaeufigkeit || 1);
-    const kapitalbindungskosten = item.Istbestand * item.Preis * zinssatz;
+    // damals wurde es wiefolgt berechnet: const umschlagshaeufigkeit = item.Verbrauch / (avgLagerbestand || 1);
+    const umschlagshaeufigkeit = avgLagerbestand > 0 ? item.Verbrauch / avgLagerbestand : 0;
+    // damals wurde es wiefolgt berechnet: const avgLagerdauer = 360 / (umschlagshaeufigkeit || 1);
+    const avgLagerdauer = umschlagshaeufigkeit > 0 ? 360 / umschlagshaeufigkeit : 999;
+    // damals wurde es wiefolgt berechnet: const kapitalbindungskosten = item.Istbestand * item.Preis * zinssatz;
+    const kapitalbindungskosten = avgLagerbestand * item.Preis * zinssatz;
     const verbrauchswert = item.Verbrauch * item.Preis;
 
     // NEUE LAGERSTATUS-LOGIK
